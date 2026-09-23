@@ -33,3 +33,17 @@ src/utils/    -> helper/utility functions
 sql/          -> SQL queries
 notebooks/    -> exploration and analysis notebooks
 outputs/      -> results, reports, and visualizations
+
+## Project Progress
+
+### BigQuery Setup
+- Created Google Cloud project: Retail Demand Forecasting
+- Created BigQuery dataset: m5_retail
+- Loaded all M5 source files into BigQuery
+- Created raw tables:
+  - calendar_raw
+  - sales_train_validation_raw
+  - sales_train_evaluation_raw
+  - sell_prices_raw
+  - sample_submission_raw
+- Verified all five tables successfully.
