@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: m5_retail
+    database: coherent-parity-509412-v6
+    schema: m5_retail
+    tables:
+      - name: calendar_raw
+      - name: sales_train_validation_raw
+      - name: sales_train_evaluation_raw
+      - name: sell_prices_raw
