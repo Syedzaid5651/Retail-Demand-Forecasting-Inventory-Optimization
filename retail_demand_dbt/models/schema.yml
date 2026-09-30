@@ -1,0 +1,27 @@
+version: 2
+
+models:
+
+  - name: stg_calendar
+    description: "Staging model that cleans and standardizes the M5 calendar data."
+
+  - name: stg_sales_daily
+    description: "Staging model that converts the M5 sales data from wide format into daily records."
+
+  - name: stg_sell_prices
+    description: "Staging model containing store, item, week and selling price information."
+
+  - name: int_sales_daily
+    description: "Intermediate model that combines daily sales with calendar information."
+
+  - name: int_sales_pricing
+    description: "Intermediate model that prepares product pricing information for downstream analysis."
+
+  - name: mart_daily_sales
+    description: "Daily sales mart providing aggregated sales by date, store, department, category and state."
+
+  - name: mart_weekly_sales
+    description: "Weekly sales mart aggregating daily sales into weekly totals by store, department, category and state."
+
+  - name: mart_monthly_sales
+    description: "Monthly sales mart aggregating daily sales into monthly totals by store, department, category and state."
