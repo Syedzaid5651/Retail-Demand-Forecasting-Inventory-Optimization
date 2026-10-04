@@ -47,3 +47,6 @@ outputs/      -> results, reports, and visualizations
   - sell_prices_raw
   - sample_submission_raw
 - Verified all five tables successfully.
+
+### Week 3 Day 1
+Implemented Prophet-based time-series forecasting with a 28-day forecast for the M5 sales dataset.
