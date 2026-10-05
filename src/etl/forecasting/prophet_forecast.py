@@ -125,3 +125,23 @@ print(
         ["ds", "yhat", "yhat_lower", "yhat_upper"]
     ].tail(28)
 )
+
+# ----------------------------------------
+# Prophet Forecast Evaluation
+# ----------------------------------------
+
+# Use the last 28 days of historical data for evaluation
+actual = df.tail(28).copy()
+
+# Match the dates with Prophet forecast
+evaluation = forecast[["ds", "yhat"]].merge(
+    actual[["ds", "y"]],
+    on="ds",
+    how="inner"
+)
+
+# Calculate Mean Absolute Error (MAE)
+mae = (evaluation["y"] - evaluation["yhat"]).abs().mean()
+
+print("\nProphet Model Evaluation:")
+print(f"MAE: {mae:.4f}")
