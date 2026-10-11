@@ -1,5 +1,6 @@
 import pandas as pd
 import lightgbm as lgb
+from sklearn.metrics import mean_absolute_error
 
 # Load dataset
 sales = pd.read_csv("data/raw/sales_train_validation.csv")
@@ -8,7 +9,6 @@ calendar = pd.read_csv("data/raw/calendar.csv")
 # Select one product/store
 row = sales.iloc[0]
 
-# Get all daily sales columns
 day_columns = [
     col for col in sales.columns
     if col.startswith("d_")
@@ -27,26 +27,18 @@ df = df.merge(
     how="left"
 )
 
-# Convert columns to correct data types
 df["date"] = pd.to_datetime(df["date"])
 df["sales"] = pd.to_numeric(df["sales"])
 
-# Create forecasting features
+# Create features
 df["lag_1"] = df["sales"].shift(1)
 df["lag_7"] = df["sales"].shift(7)
 df["rolling_7"] = df["sales"].shift(1).rolling(7).mean()
 df["day_of_week"] = df["date"].dt.dayofweek
 
-# Convert features to numeric
-df["lag_1"] = pd.to_numeric(df["lag_1"])
-df["lag_7"] = pd.to_numeric(df["lag_7"])
-df["rolling_7"] = pd.to_numeric(df["rolling_7"])
-df["day_of_week"] = pd.to_numeric(df["day_of_week"])
-
 # Remove missing values
 df = df.dropna()
 
-# Define features and target
 features = [
     "lag_1",
     "lag_7",
@@ -57,17 +49,34 @@ features = [
 X = df[features]
 y = df["sales"]
 
+# Use the last 28 days for testing
+split = len(df) - 28
+
+X_train = X.iloc[:split]
+X_test = X.iloc[split:]
+
+y_train = y.iloc[:split]
+y_test = y.iloc[split:]
+
 # Create LightGBM model
 model = lgb.LGBMRegressor(
     objective="regression",
     n_estimators=100,
     learning_rate=0.05,
     max_depth=5,
-    random_state=42
+    random_state=42,
+    verbosity=-1
 )
 
 # Train model
-model.fit(X, y)
+model.fit(X_train, y_train)
+
+# Predict
+predictions = model.predict(X_test)
+
+# Calculate MAE
+mae = mean_absolute_error(y_test, predictions)
 
 print("LightGBM model trained successfully!")
 print("Features used:", features)
+print(f"LightGBM MAE: {mae:.4f}")
