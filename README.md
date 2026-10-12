@@ -50,3 +50,19 @@ outputs/      -> results, reports, and visualizations
 
 ### Week 3 Day 1
 Implemented Prophet-based time-series forecasting with a 28-day forecast for the M5 sales dataset.
+
+### Week 3 Day 2
+- Added a LightGBM forecasting model (src/etl/forecasting/lightgbm_forecast.py)
+- Engineered features: lag features (7, 14, 28 days), rolling mean/std, calendar features (day of week, month, events, holidays), and price features from sell_prices
+- Used a time-based train/validation split to avoid data leakage
+
+### Week 3 Day 3
+- Evaluated Prophet vs LightGBM on the 28-day validation window
+- Metrics: RMSE, MAE, and WRMSSE (the M5 competition metric)
+- Results: Prophet RMSE = [x], LightGBM RMSE = [y]
+- Selected [model] as the primary model based on validation error
+
+### Week 3 Day 4
+- Saved forecasts to BigQuery (m5_retail.forecast_results)
+- Added forecast vs actual visualizations in outputs/
+- Connected forecast output to app.py for viewing predictions

@@ -80,3 +80,5 @@ mae = mean_absolute_error(y_test, predictions)
 print("LightGBM model trained successfully!")
 print("Features used:", features)
 print(f"LightGBM MAE: {mae:.4f}")
+
+update model
