@@ -66,3 +66,11 @@ Implemented Prophet-based time-series forecasting with a 28-day forecast for the
 - Saved forecasts to BigQuery (m5_retail.forecast_results)
 - Added forecast vs actual visualizations in outputs/
 - Connected forecast output to app.py for viewing predictions
+
+How to Run the Dashboard
+
+1. Activate the Python virtual environment.
+2. Install the required dependencies using "pip install -r requirements.txt".
+3. Start the Streamlit application using "streamlit run app.py".
+4. Open the local URL displayed in the terminal.
+5. Ensure Google Cloud authentication is configured to access BigQuery.
