@@ -74,3 +74,11 @@ How to Run the Dashboard
 3. Start the Streamlit application using "streamlit run app.py".
 4. Open the local URL displayed in the terminal.
 5. Ensure Google Cloud authentication is configured to access BigQuery.
+
+Project Validation
+
+- Verify the dashboard loads forecast data from BigQuery.
+- Check sales summary metrics and charts.
+- Test price scenario calculations and inventory reorder suggestions.
+- Confirm CSV export works correctly.
+- Review Git status before sharing the project.
