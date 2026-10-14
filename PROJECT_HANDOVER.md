@@ -43,3 +43,10 @@ The dashboard uses the forecast results currently stored in BigQuery. Future-dem
 7. Handover
 
 The repository contains the dashboard, forecasting code, data transformation models, and project documentation. Before deployment, verify dependencies, permissions, forecast validity, and the dashboard's behavior in the target environment.
+
+Troubleshooting
+
+- If the dashboard does not start, verify that the virtual environment is activated.
+- If dependencies are missing, run "pip install -r requirements.txt".
+- If BigQuery fails to load, check Google Cloud authentication and project permissions.
+- If forecast data is unavailable, verify that the expected BigQuery table exists.
