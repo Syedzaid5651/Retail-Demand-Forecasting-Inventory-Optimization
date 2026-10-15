@@ -82,3 +82,13 @@ Project Validation
 - Test price scenario calculations and inventory reorder suggestions.
 - Confirm CSV export works correctly.
 - Review Git status before sharing the project.
+
+Project Workflow
+
+1. Collect and prepare the M5 retail sales dataset.
+2. Load raw data into Google BigQuery.
+3. Transform and organize data using dbt.
+4. Build demand forecasting models using Prophet and LightGBM.
+5. Store forecast results in BigQuery.
+6. Visualize sales trends through the Streamlit dashboard.
+7. Use demand estimates to support inventory planning.
