@@ -50,3 +50,13 @@ Troubleshooting
 - If dependencies are missing, run "pip install -r requirements.txt".
 - If BigQuery fails to load, check Google Cloud authentication and project permissions.
 - If forecast data is unavailable, verify that the expected BigQuery table exists.
+
+Project Deliverables
+
+- Raw retail dataset and data preparation workflow.
+- BigQuery tables for retail sales and forecast results.
+- dbt staging, intermediate, and mart models.
+- Prophet and LightGBM forecasting scripts.
+- Streamlit dashboard for sales analysis.
+- Inventory optimization and reorder estimation features.
+- Project documentation and setup instructions.
